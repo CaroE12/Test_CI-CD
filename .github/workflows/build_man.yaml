@@ -31,5 +31,6 @@ jobs:
                 username: group3
                 port: 22
                 key: ${{secrets.MY_SECRET}}
+                passphrase: ${{secrets.PASSPHRASE}}
                 source: "trivy_report.html"
                 target: /var/www/group3/<
