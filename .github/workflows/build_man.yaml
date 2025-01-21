@@ -23,11 +23,13 @@ jobs:
               with:
                     name: trivy-report
                     path: ./trivy_report.html
+            
             - name: Trivy Report Upload
               uses: appleboy/scp-action@v0.1.7
               with:
                 host: dhbw.hoenle.xyz
                 username: group3
                 port: 22
+                key: ${{secrets.MY_SECRET}}
                 source: "trivy_report.html"
-                target: /var/www/group3/
+                target: /var/www/group3/<
