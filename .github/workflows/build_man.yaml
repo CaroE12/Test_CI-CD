@@ -16,10 +16,18 @@ jobs:
                 scan-type: filesystem
                 format: template
                 template: '@./trivy-html-report-template.tpl'
-                output: ./trivy-scan.html
+                output: ./trivy_report.html
 
             - name: Upload Report as Artifact
               uses: actions/upload-artifact@v3
               with:
                     name: trivy-html-report
                     path: ./trivy-scan.html
+            - name: Trivy Report Upload
+              uses: appleboy/scp-action@v0.1.7
+              with:
+                host: dhbw.hoenle.xyz
+                username: group3
+                port: 22
+                source: "trivy_report.html"
+                target: /var/www/group3/myreport.html
