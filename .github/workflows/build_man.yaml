@@ -21,8 +21,8 @@ jobs:
             - name: Upload Report as Artifact
               uses: actions/upload-artifact@v3
               with:
-                    name: trivy-html-report
-                    path: ./trivy-scan.html
+                    name: trivy-report
+                    path: ./trivy_report.html
             - name: Trivy Report Upload
               uses: appleboy/scp-action@v0.1.7
               with:
@@ -30,4 +30,4 @@ jobs:
                 username: group3
                 port: 22
                 source: "trivy_report.html"
-                target: /var/www/group3/myreport.html
+                target: /var/www/group3/
