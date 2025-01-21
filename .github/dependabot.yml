@@ -1,7 +1,7 @@
 version: 2
 updates:
   # Configuration for Go dependencies
-  - package-ecosystem: "go"
+  - package-ecosystem: "gomod"
     directory: "/backend"
     schedule:
       interval: "daily"
