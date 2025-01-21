@@ -1,0 +1,25 @@
+on:
+    schedule: 
+        - cron: '0 0 * * *'
+    workflow_dispatch:
+        
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Run Trivy vulnerability scanner in fs mode
+              uses: aquasecurity/trivy-action@0.28.0
+              with:
+                scan-type: filesystem
+                format: template
+                template: '@./trivy-html-report-template.tpl'
+                output: ./trivy-scan.html
+
+            - name: Upload Report as Artifact
+              uses: actions/upload-artifact@v3
+              with:
+                    name: trivy-html-report
+                    path: ./trivy-scan.html
