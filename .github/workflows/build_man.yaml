@@ -33,4 +33,4 @@ jobs:
                 key: ${{secrets.MY_SECRET}}
                 passphrase: ${{secrets.PASSPHRASE}}
                 source: "trivy_report.html"
-                target: /var/www/group3/<
+                target: /var/www/group3/
