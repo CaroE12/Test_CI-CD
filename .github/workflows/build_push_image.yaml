@@ -16,5 +16,5 @@ jobs:
                 password: ${{ secrets.GITHUB_TOKEN }}
             - name: Build and push Docker image
               run: |
-                docker build . -t ghcr.io/caroE12/bratan:latest
-                docker push ghcr.io/caroE12/bratan:latest
+                docker build . -t ghcr.io/caroe12/bratan:latest
+                docker push ghcr.io/caroe12/bratan:latest
