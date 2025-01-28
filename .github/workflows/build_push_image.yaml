@@ -17,24 +17,7 @@ jobs:
             - name: Build and push Docker image
               run: |
                 docker build . -t ghcr.io/caroe12/bratan:latest
+                docker run -d -p 8080:80 --name smoke-bratan ghcr.io/caroe12/bratan:latest --entrypoint "cd backend && go run ./cmd/smoketest/"
                 docker push ghcr.io/caroe12/bratan:latest
-    smoke-test: 
-        runs-on: ubuntu-latest
-        if: ${{ github.actor }} != 'dependabot[bot]'
-        steps:
-            - name: smoke test
-              uses: actions/checkout@v3
-            - name: Login to GitHub Container Registry
-              uses: docker/login-action@v3
-              with:
-                registry: ghcr.io
-                username: ${{ github.actor }}
-                password: ${{ secrets.GITHUB_TOKEN }}
-            - name: Build and smoke test new image
-              run: |
-                docker build . -t ghcr.io/caroe12/bratan:latest
-                docker push ghcr.io/caroe12/bratan:latest
-                cd backend
-                go run ./cmd/smoketest/
 
       
