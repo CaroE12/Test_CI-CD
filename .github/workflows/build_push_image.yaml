@@ -16,5 +16,5 @@ jobs:
                 password: ${{ secrets.DOCKER_TOKEN }}
             - name: Build and push Docker image
               run: |
-                docker build . -t ghcr.io/group3/bratan:latest
+                docker build . -t ghcr.io/group3/bratan:latest -t ghcr.io/group3/bratan:${{ github.sha }}
                 docker push ghcr.io/group3/bratan:latest
