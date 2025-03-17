@@ -1,15 +1,15 @@
-version: 2
-updates:
+#version: 2
+#updates:
   # Configuration for Go dependencies
-  - package-ecosystem: "gomod"
-    directory: "/backend"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+ # - package-ecosystem: "gomod"
+#    directory: "/backend"
+#    schedule:
+#      interval: "daily"
+#    open-pull-requests-limit: 10
 
   # Configuration for Node.js dependencies
-  - package-ecosystem: "npm"
-    directory: "/frontend"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
+#  - package-ecosystem: "npm"
+#    directory: "/frontend"
+#    schedule:
+#      interval: "daily"
+#    open-pull-requests-limit: 10
